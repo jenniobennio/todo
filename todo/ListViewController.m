@@ -8,9 +8,11 @@
 
 #import "ListViewController.h"
 #import "EditableCell.h"
+#import <Parse/Parse.h>
 
 @interface ListViewController (){
     UITapGestureRecognizer *tapRecognizer;
+    PFObject *parseObj;
 }
 
 @property (nonatomic, strong) NSMutableArray *todoList;
@@ -79,6 +81,11 @@
     }
     
     [self saveData];
+    
+    parseObj = [PFObject objectWithClassName:@"ToDoListItems"];
+    parseObj[@"todoList"] = self.todoList;
+    parseObj[@"heights"] = self.heights;
+    [parseObj saveInBackground];
 }
 
 - (void)didReceiveMemoryWarning
@@ -249,6 +256,10 @@
     [defaults setObject:self.todoList forKey:@"todoList"];
     [defaults setObject:self.heights forKey:@"heights"];
     [defaults synchronize];
+    
+    parseObj[@"todoList"] = self.todoList;
+    parseObj[@"heights"] = self.heights;
+    [parseObj saveInBackground];
 }
 
 # pragma mark - Actions on button presses
