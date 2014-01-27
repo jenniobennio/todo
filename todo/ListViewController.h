@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ListViewController : UIViewController
+@interface ListViewController : UITableViewController <UITextViewDelegate, UITableViewDelegate>
 
 @end

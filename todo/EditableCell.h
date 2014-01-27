@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface EditableCell : UITableViewCell
-
+@property (weak, nonatomic) IBOutlet UITextView *todoTextView;
+@property (weak, nonatomic) IBOutlet UIButton *clearButton;
 @end
