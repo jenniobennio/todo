@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  EditableCell.h
 //  todo
 //
 //  Created by Jenny Kwan on 1/25/14.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface EditableCell : UITableViewCell
 
 @end
